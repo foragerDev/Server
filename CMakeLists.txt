@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.19.2)
+project(chat_server VERSION 1.0.0)
+set(CMAKE_CXX_STANDARD 17)
+find_package(Boost 1.75.0)
+
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS} include)
+    add_executable(Test src/server.cpp)
+    target_link_libraries(Test pthread)
+endif()
